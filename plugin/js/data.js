@@ -1,0 +1,4 @@
+
+var preferences = {
+    showContextMenu: true
+};
