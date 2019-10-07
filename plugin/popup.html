@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8"/>
     <title>Bezpieczny Jeż</title>
     <link rel="stylesheet" type="text/css" href="/css/smoothness/jquery-ui-1.12.1.custom.min.css" />
     <link rel="stylesheet" type="text/css" href="/lib/uniform/uniform.default.css" />
@@ -8,6 +9,10 @@
     <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/popup.css">
     <link rel="stylesheet" type="text/css" href="/css/popup-accordion.css">
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap-table/bootstrap-table.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/lib/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/lib/apexcharts/apexcharts.css" />
 
     <script type="text/javascript" src="/lib/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/lib/jquery-ui-1.12.1.custom.min.js"></script>
@@ -15,6 +20,11 @@
     <script type="text/javascript" src="/lib/custom_i18n.js"></script>
     <script type="text/javascript" src="/lib/i18n_translator.js"></script>
     <script type="text/javascript" src="/lib/object-watch.js"></script>
+    <script type="text/javascript" src="/lib/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/lib/bootstrap-table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="/lib/apexcharts/apexcharts.min.js"></script>
+    <script type="text/javascript" src="/lib/springy/springy.js"></script>
+    <script type="text/javascript" src="/lib/springy/springyui.js"></script>
 
     <script type="text/javascript" src="/js/cookie_helpers.js"></script>
     <script type="text/javascript" src="/js/data.js"></script>
@@ -24,10 +34,61 @@
 <body class="unselectable">
     <div id="loader-container1"></div>
 
-    <div id="costam">
-        <button>temp</button>
-        <div id="cookies-list"></div>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="/img/icon_48x48.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Bezpieczny Jeż
+        </a>
+        <div class="ml-auto text-white">
+            <a href="#help"><i class="fas fa-question-circle"></i></a>
+            <a href="#"><i class="fas fa-sync"></i></a>
+            <a href="#admin"><i class="fas fa-bar-chart"></i></a>
+            <a href="#settings"><i class="fas fa-cog"></i></a>
+        </div>
+    </nav>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+               aria-selected="true">Mój Jeż</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#page" role="tab" aria-controls="profile"
+               aria-selected="false">Prywantość</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="contact"
+               aria-selected="false">Osiągnięcia</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="contact"
+               aria-selected="false">Ustawienia</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="chart"></div>
+            <div class="heatmap"></div>
+
+        </div>
+        <div class="tab-pane fade" id="page" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="graph">
+                    <canvas width="1000px" height="1000px"></canvas>
+                </div>
+        </div>
+        <div class="tab-pane fade" id="" role="tabpanel" aria-labelledby="settings-tab">
+        </div>
+        <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+        </div>
     </div>
+    <footer class="page-footer bg-dark text-white">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            <i class="fa fa-exclamation-triangle"></i> Tylko spokój nas uratuje.
+        </div>
+        <!-- Copyright -->
+
+    </footer>
 </body>
 
 </html>

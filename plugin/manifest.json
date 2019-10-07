@@ -19,26 +19,33 @@
     },
     "devtools_page": "/devtools/devtools-page.html",
     "background": {
-        "scripts": [
-            "/lib/jquery-3.3.1.min.js",
-            "/lib/object-watch.js",
-            "/js/cookie_helpers.js",
-            "/js/utils.js",
-            "/js/data.js",
-            "/js/background.js"
-        ]
+      "scripts": [
+        "/lib/jquery-3.3.1.min.js",
+        "/lib/bootstrap/bootstrap.min.js",
+        "/lib/bootstrap-table/bootstrap-table.min.js",
+        "/lib/apexcharts/apexcharts.min.js",
+        "/lib/springy/springyui.js",
+        "/lib/springy/springy.js",
+        "/lib/object-watch.js",
+        "/js/cookie_helpers.js",
+        "/js/utils.js",
+        "/js/data.js",
+        "/js/background.js"
+      ]
     },
     "options_page": "options_main_page.html",
-    "permissions": [
-        "tabs",
-        "\u003Call_urls\u003E",
-        "cookies",
-        "contextMenus",
-        "unlimitedStorage",
-        "notifications",
-        "storage",
-        "clipboardWrite"
-    ],
+  "permissions": [
+    "tabs",
+    "\u003Call_urls\u003E",
+    "cookies",
+    "contextMenus",
+    "webRequest",
+    "webRequestBlocking",
+    "unlimitedStorage",
+    "notifications",
+    "storage",
+    "clipboardWrite"
+  ],
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "minimum_chrome_version": "41",
     "manifest_version": 2,

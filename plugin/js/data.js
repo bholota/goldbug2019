@@ -2,3 +2,4 @@
 var preferences = {
     showContextMenu: true
 };
+
