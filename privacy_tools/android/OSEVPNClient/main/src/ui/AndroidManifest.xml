@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="de.blinkt.openvpn">
+
+  <uses-feature
+      android:name="android.software.leanback"
+      android:required="false" />
+  <uses-feature
+      android:name="android.hardware.touchscreen"
+      android:required="false" />
+
+  <application
+      android:banner="@mipmap/banner_tv"
+      android:label="@string/app_name_ose"
+      tools:replace="android:label">
+    <activity
+        android:name="com.goldbug.vpn.PinActivity"
+        android:theme="@style/OseAppTheme">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+      </intent-filter>
+    </activity>
+    <activity android:name="com.goldbug.vpn.AdminSetupActivity" />
+    <activity
+        android:name=".activities.MainActivity"
+        tools:ignore="ExportedActivity" />
+    <activity
+        android:name="com.goldbug.vpn.SimpleConfigActivity"
+        android:theme="@style/OseAppTheme">
+    </activity>
+
+    <receiver
+        android:name="com.goldbug.vpn.AdminReceiver"
+        android:description="@string/sample_device_admin_description"
+        android:label="@string/sample_device_admin"
+        android:permission="android.permission.BIND_DEVICE_ADMIN">
+      <meta-data
+          android:name="android.app.device_admin"
+          android:resource="@xml/device_admin_sample" />
+
+      <intent-filter>
+        <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+        <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE" />
+      </intent-filter>
+    </receiver>
+  </application>
+
+</manifest>
