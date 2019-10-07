@@ -1,0 +1,2 @@
+include ':app', ':osevpn'
+rootProject.name='OSE VPN Client'
