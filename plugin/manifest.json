@@ -44,7 +44,11 @@
     "unlimitedStorage",
     "notifications",
     "storage",
-    "clipboardWrite"
+    "clipboardWrite",
+    "webRequest",
+    "webRequestBlocking",
+    "https://*/*",
+    "http://*/*"
   ],
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "minimum_chrome_version": "41",

@@ -11,51 +11,10 @@ chrome.i18n = (function() {
 
   //Supported locales as in:
   //https://developers.google.com/chrome/web-store/docs/i18n?hl=it#localeTable
-  var supportedLocales = 
-	[{"code":"ar", "name":"Arabic"},
-	{"code":"bg", "name":"Bulgarian"},
-	{"code":"ca", "name":"Catalan"},
-	{"code":"zh_CN", "name":"Chinese (China)"},
-	{"code":"zh_TW", "name":"Chinese (Taiwan)"},
-	{"code":"hr", "name":"Croatian"},
-	{"code":"cs", "name":"Czech"},
-	{"code":"da", "name":"Danish"},
-	{"code":"nl", "name":"Dutch"},
-	{"code":"en", "name":"English"},
-	{"code":"en_GB", "name":"English (Great Britain)"},
-	{"code":"en_US", "name":"English (USA)"},
-	{"code":"et", "name":"Estonian"},
-	{"code":"fil", "name":"Filipino"},
-	{"code":"fi", "name":"Finnish"},
-	{"code":"fr", "name":"French"},
-	{"code":"de", "name":"German"},
-	{"code":"el", "name":"Greek"},
-	{"code":"he", "name":"Hebrew"},
-	{"code":"hi", "name":"Hindi"},
-	{"code":"hu", "name":"Hungarian"},
-	{"code":"id", "name":"Indonesian"},
-	{"code":"it", "name":"Italian"},
-	{"code":"ja", "name":"Japanese"},
-	{"code":"ko", "name":"Korean"},
-	{"code":"lv", "name":"Latvian"},
-	{"code":"lt", "name":"Lithuanian"},
-	{"code":"no", "name":"Norwegian"},
-	{"code":"pl", "name":"Polish"},
-	{"code":"pt_BR", "name":"Portuguese (Brazil)"},
-	{"code":"pt_PT", "name":"Portuguese (Portugal)"},
-	{"code":"ro", "name":"Romanian"},
-	{"code":"ru", "name":"Russian"},
-	{"code":"sr", "name":"Serbian"},
-	{"code":"sk", "name":"Slovak"},
-	{"code":"sl", "name":"Slovenian"},
-	{"code":"es", "name":"Spanish"},
-	{"code":"es_419", "name":"Spanish (Latin America and Caribbean)"},
-	{"code":"sv", "name":"Swedish"},
-	{"code":"th", "name":"Thai"},
-	{"code":"tr", "name":"Turkish"},
-	{"code":"uk", "name":"Ukrainian"},
-	{"code":"vi", "name":"Vietnamese"}];
-	
+  var supportedLocales =
+	[{"code":"en", "name":"English"},
+	{"code":"pl", "name":"Polish"}];
+
   function syncFetch(file, fn) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", chrome.extension.getURL(file), false);
@@ -174,7 +133,7 @@ chrome.i18n = (function() {
 
     getMessage: function(messageID, args) {
       if (l10nData == undefined) {
-        // Assume that we're not in a content script, because content 
+        // Assume that we're not in a content script, because content
         // scripts are supposed to have set l10nData already
         chrome.i18n._setL10nData(chrome.i18n._getL10nData());
       }
@@ -188,7 +147,7 @@ chrome.i18n = (function() {
       }
       return "";
     },
-    
+
     //Returns the list of locales that are actually present in the locale directory
     getExistingLocales: function (){
      var existingLocales = [];
@@ -209,7 +168,7 @@ chrome.i18n = (function() {
   	  }
   	  return existingLocales;
 	}
-    
+
   };
 
   return theI18nObject;

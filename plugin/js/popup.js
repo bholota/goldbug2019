@@ -165,7 +165,7 @@ function chartInit() {
             }
         },
         series: [44, 55, 67, 83],
-        labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
+        labels: ['Other', 'Sources', 'Warnings', 'Critical'],
 
     }
 

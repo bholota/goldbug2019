@@ -79,3 +79,72 @@ function updateReq(data) {
         chrome.storage.sync.set({ requests: raw }, () => {});
     });
 }
+
+chrome.webRequest.onBeforeSendHeaders.addListener(
+    function(details) {
+
+        if (details.url.indexOf('http://127.0.0.1:5000/data?url=') === -1) {
+            let url = parseUrl(details.url);
+            if (data_tracking.action_map[url] !== undefined) {
+                if (data_tracking.action_map[url].heuristicAction === 'block') {
+                    addCurrentTracker(url);
+                    // $.get("http://127.0.0.1:5000/data?url=blocked_" + url);
+                    return {cancel: true};
+                }
+            }
+
+            // $.get("http://127.0.0.1:5000/data?url=" + url);
+        }
+        // removeHeader(details.requestHeaders, 'cookie');
+        return {requestHeaders: details.requestHeaders};
+    },
+    // filters
+    {urls: ['https://*/*', 'http://*/*']},
+    // extraInfoSpec
+    ['blocking', 'requestHeaders', 'extraHeaders']);
+
+chrome.webRequest.onHeadersReceived.addListener(
+    function(details) {
+
+        if (details.url.indexOf('http://127.0.0.1:5000/data?url=') === -1) {
+            let url = parseUrl(details.url);
+
+            // $.get("http://127.0.0.1:5000/data?url=" + url + "&data=" + JSON.stringify(details.responseHeaders));
+            if (data_tracking.action_map[url] !== undefined) {
+                if (data_tracking.action_map[url].heuristicAction !== 'block') {
+                    removeHeader(details.responseHeaders, 'set-cookie');
+                }
+            }
+        }
+        return {responseHeaders: details.responseHeaders};
+    },
+    // filters
+    {urls: ['https://*/*', 'http://*/*']},
+    // extraInfoSpec
+    ['blocking', 'responseHeaders', 'extraHeaders']);
+
+function parseUrl(url) {
+    let hostname;
+
+    if (url.indexOf("//") > -1) {
+        hostname = url.split('/')[2];
+    }
+    else {
+        hostname = url.split('/')[0];
+    }
+
+    hostname = hostname.split(':')[0];
+    hostname = hostname.split('?')[0];
+
+    return hostname;
+}
+
+function removeHeader(headers, name) {
+    for (var i = 0; i < headers.length; i++) {
+        if (headers[i].name.toLowerCase() == name) {
+            console.log('Removing "' + name + '" header.');
+            headers.splice(i, 1);
+            break;
+        }
+    }
+}
