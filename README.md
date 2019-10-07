@@ -5,3 +5,4 @@ Zapewnienie bezpiecznego połączenia internetowego w szkole i poza szkołą pop
 ![Screenshot1](/ose_screenshot/scr_connected_frame.png?raw=true "Screenshot 1")
 ![Screenshot2](/ose_screenshot/scr_pinpad_frame.png?raw=true "Screenshot 2")
 ![Screenshot3](/ose_screenshot/scr_protected_frame.png?raw=true "Screenshot 3")
+![Screenshot4](/ose_screenshot/scr_sec_dialog.png?raw=true "Screenshot 4")
